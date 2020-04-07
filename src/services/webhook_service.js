@@ -3,8 +3,9 @@ const parsePayload = (payload) => {
   const type = payload.pull_request === undefined ? 'pull_request' : 'issue'
   const properties = {
     type: type,
-    url: payload['type'].html_url,
+    url: payload[type].html_url,
     repository_name: payload.repository.name,
+    title: payload.issue.title,
     sender: {
       username: payload.sender.login,
       github_id: payload.sender.id
@@ -13,7 +14,6 @@ const parsePayload = (payload) => {
   switch (action) {
     case 'opened':
       properties.action = 'create'
-      properties.title = payload.issue.title
       break
     case 'assigned':
       properties.action = 'assign_issue'
