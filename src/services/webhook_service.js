@@ -15,6 +15,9 @@ const parsePayload = (payload) => {
     case 'opened':
       properties.action = 'create'
       break
+    case 'closed':
+      properties.action = payload.pull_request.state
+      break
     case 'assigned':
       properties.action = 'assign_issue'
       properties.assignee = {}
