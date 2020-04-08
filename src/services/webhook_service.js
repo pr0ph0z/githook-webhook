@@ -6,7 +6,7 @@ const parsePayload = (payload) => {
     url: payload[type].html_url,
     repository_name: payload.repository.name,
     title: payload[type].title,
-    number: payload.number,
+    number: payload[type].number,
     sender: {
       username: payload.sender.login,
       github_id: payload.sender.id
@@ -17,10 +17,10 @@ const parsePayload = (payload) => {
       properties.action = 'create'
       break
     case 'closed':
-      properties.action = payload.pull_request.state
+      properties.action = payload[type].state
       break
     case 'assigned':
-      properties.action = 'assign_issue'
+      properties.action = `assigned_${type}`
       properties.assignee = {}
       properties.assignee.username = payload.assignee.login
       properties.assignee.github_id = payload.assignee.id
