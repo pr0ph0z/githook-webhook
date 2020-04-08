@@ -27,6 +27,9 @@ const parsePayload = (payload) => {
       properties.reviewer.username = payload.requested_reviewer.login
       properties.reviewer.github_id = payload.requested_reviewer.id
       break
+    case 'submitted':
+      properties.action = payload.review.state
+      properties.assignees = payload.pull_request.assignees.map(({ login: username, id: github_id}) => ({ username, github_id }))
   }
 
   return properties
