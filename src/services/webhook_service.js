@@ -6,6 +6,7 @@ const parsePayload = (payload) => {
     url: payload[type].html_url,
     repository_name: payload.repository.name,
     title: payload[type].title,
+    number: payload.number,
     sender: {
       username: payload.sender.login,
       github_id: payload.sender.id
