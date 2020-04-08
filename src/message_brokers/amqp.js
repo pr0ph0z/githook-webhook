@@ -15,7 +15,12 @@ const connectToAmqp = async () => {
 
 const getChannel = () => channel
 
+const publish = (message) => {
+  getChannel().publish('', 'hooks', message)
+}
+
 module.exports = {
   connectToAmqp,
-  getChannel
+  getChannel,
+  publish
 }
