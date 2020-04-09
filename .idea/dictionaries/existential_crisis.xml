@@ -2,8 +2,6 @@
   <dictionary name="existential-crisis">
     <words>
       <w>amqp</w>
-      <w>fgithook</w>
-      <w>githook</w>
       <w>webhook</w>
     </words>
   </dictionary>
