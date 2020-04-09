@@ -33,7 +33,8 @@ const parsePayload = (payload) => {
       break
     case 'submitted':
       properties.action = payload.review.state
-      properties.assignees = payload.pull_request.assignees.map(({ login: username, id: github_id}) => ({ username, github_id }))
+      // eslint-disable-next-line camelcase
+      properties.assignees = payload.pull_request.assignees.map(({ login: username, id: github_id }) => ({ username, github_id }))
   }
 
   return properties
