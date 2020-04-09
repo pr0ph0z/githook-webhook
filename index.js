@@ -8,5 +8,5 @@ const credentials = { pfx: readFileSync(process.env.PFX_FILE), passphrase: proce
 const server = https.createServer(credentials, app)
 
 server.listen(process.env.PORT, () => {
-    logger.info(`Server started on port ${process.env.PORT}`)
+  logger.info(`Server started on port ${process.env.PORT}`)
 })
